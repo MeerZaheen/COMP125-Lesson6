@@ -82,9 +82,6 @@
     function About() {
         InitialText();
 
-
-        if (window.confirm("Are you sure you want to give away your sensitive information?")) {
-
             console.log("InnerWidth:  " + window.innerWidth);
             console.log("InnerHeight:  " + window.innerHeight);
             console.log("OuterWidth:  " + window.outerWidth);
@@ -96,14 +93,32 @@
 
             window.navigator.geolocation.getCurrentPosition(function (location) {
                 console.log("Latitude: " + location.coords.latitude);
-                console.log("Longitude: " + location.coords.longitude)
-            });
+                console.log("Longitude: " + location.coords.longitude);
 
-            while ((yourname == null) || (yourname == "")) {
-                var yourname = window.prompt("Enter your name: ");
-                console.log("You typed: " + yourname);
+            var rowDiv = document.getElementsByClassName("p")[0];
 
-            }
+            var timer = 0;
+
+            var myTimer = window.setInterval(function () {
+                timer++;
+                console.log(timer);
+
+                if (timer % 2 == 0) {
+
+                    rowDiv.style.display = "none";
+                } else {
+                    rowDiv.style.display = "block";
+                }
+                if (timer > 10) {
+                    console.log("we should stop now");
+                    window.clearTimeout(myTimer);
+                }
+            }, 1000);
+
+            window.setTimeout(function () {
+
+                alert("Hello world after 3 seconds");
+            }, 3000);
         }
 
     }
