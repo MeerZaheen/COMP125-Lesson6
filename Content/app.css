@@ -12,12 +12,17 @@
 // IIFE - Immediately Invoked Function Expression
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-body{
+body {
     font-family: 'Open Sans', sans-serif;
 }
+
 
 .firstSentence {
     color: darkblue;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+}
+
+div.row p {
+    color: blue;
 }

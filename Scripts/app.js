@@ -38,6 +38,7 @@
                 break;
         }
     }
+
     /**
      * This function injects some text into the first paragraph of a page based on it's 
      * document.title property
@@ -46,12 +47,9 @@
      * @returns {void}
      */
     function InitialText() {
-        var parentElement = document.querySelector("div.row");
+        var paragraph = document.getElementsByTagName("p")[0];
 
-        var secondParagraph = document.createElement("p");
-        secondParagraph.textContent = "second paragraph";
-
-        parentElement.appendChild(secondParagraph);       
+        paragraph.textContent = "This is my first paragraph on the " + document.title + " page";
     }
 
     /**
@@ -63,9 +61,16 @@
     function Home() {
         InitialText();
 
-        var firstPargraph = document.querySelectorAll("div.row p")[0];
+        var parentElement = document.querySelector("div.row");
 
-        firstPargraph.style.color = "red";
+        var firstParagraph = document.querySelector("div.row p");
+
+        var secondParagraph = document.createElement("p");
+        secondParagraph.textContent = "second paragraph";
+
+        parentElement.insertBefore(secondParagraph, firstParagraph);
+
+
     }
 
     /**
@@ -76,6 +81,31 @@
     */
     function About() {
         InitialText();
+
+
+        if (window.confirm("Are you sure you want to give away your sensitive information?")) {
+
+            console.log("InnerWidth:  " + window.innerWidth);
+            console.log("InnerHeight:  " + window.innerHeight);
+            console.log("OuterWidth:  " + window.outerWidth);
+            console.log("OuterHeight:  " + window.outerHeight);
+            console.log("Location: " + window.location);
+            console.log("Navigator appName: " + window.navigator.appName);
+            console.log("Navigator appCodeName: " + window.navigator.appCodeName);
+            console.log("Navigator appVersion: " + window.navigator.appVersion);
+
+            window.navigator.geolocation.getCurrentPosition(function (location) {
+                console.log("Latitude: " + location.coords.latitude);
+                console.log("Longitude: " + location.coords.longitude)
+            });
+
+            while ((yourname == null) || (yourname == "")) {
+                var yourname = window.prompt("Enter your name: ");
+                console.log("You typed: " + yourname);
+
+            }
+        }
+
     }
 
     /**
