@@ -68,7 +68,7 @@
         var secondParagraph = document.createElement("p");
         secondParagraph.textContent = "second paragraph";
 
-        parentElement.insertBefore(secondParagraph, firstParagraph);
+       parentElement.insertBefore(secondParagraph, firstParagraph);
 
 
     }
@@ -82,45 +82,42 @@
     function About() {
         InitialText();
 
-            console.log("InnerWidth:  " + window.innerWidth);
-            console.log("InnerHeight:  " + window.innerHeight);
-            console.log("OuterWidth:  " + window.outerWidth);
-            console.log("OuterHeight:  " + window.outerHeight);
-            console.log("Location: " + window.location);
-            console.log("Navigator appName: " + window.navigator.appName);
-            console.log("Navigator appCodeName: " + window.navigator.appCodeName);
-            console.log("Navigator appVersion: " + window.navigator.appVersion);
+        console.log("InnerWidth:  " + window.innerWidth);
+        console.log("InnerHeight:  " + window.innerHeight);
+        console.log("OuterWidth:  " + window.outerWidth);
+        console.log("OuterHeight:  " + window.outerHeight);
+        console.log("Location: " + window.location);
+        console.log("Navigator appName: " + window.navigator.appName);
+        console.log("Navigator appCodeName: " + window.navigator.appCodeName);
+        console.log("Navigator appVersion: " + window.navigator.appVersion);
 
-            window.navigator.geolocation.getCurrentPosition(function (location) {
-                console.log("Latitude: " + location.coords.latitude);
-                console.log("Longitude: " + location.coords.longitude);
+        window.navigator.geolocation.getCurrentPosition(function (location) {
+            console.log("Latitude: " + location.coords.latitude);
+            console.log("Longitude: " + location.coords.longitude);
+        });
 
-            var rowDiv = document.getElementsByClassName("p")[0];
+        var rowDiv = document.getElementsByClassName("row")[0];
 
-            var timer = 0;
+        var timer = 0;
+        var ycoord = 0;
 
-            var myTimer = window.setInterval(function () {
-                timer++;
-                console.log(timer);
+        var myTimer = window.setInterval(function () {
+            timer++;
+            ycoord += 100;
+            console.log(timer);
 
-                if (timer % 2 == 0) {
+            if (timer % 2 == 0) {
 
-                    rowDiv.style.display = "none";
-                } else {
-                    rowDiv.style.display = "block";
-                }
-                if (timer > 10) {
-                    console.log("we should stop now");
-                    window.clearTimeout(myTimer);
-                }
-            }, 1000);
-
-            window.setTimeout(function () {
-
-                alert("Hello world after 3 seconds");
-            }, 3000);
-        }
-
+                rowDiv.style.display = "none";
+            } else {
+                rowDiv.style.display = "block";
+            }
+            if (timer > 10) {
+                console.log("we should stop now");
+                window.clearTimeout(myTimer);
+            }
+            window.scrollTo(0, ycoord);
+        }, 200);
     }
 
     /**
