@@ -127,6 +127,10 @@
     * @returns {void}
     */
     function Contact() {
+        var contactNumber = document.getElementById("contactNumber");
+        contactNumber.addEventListener("blur", function(){
+            console.log(contactNumber.value.length);
+        });
 
     }
 
