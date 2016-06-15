@@ -41,7 +41,7 @@
 
     /**
      * This function injects some text into the first paragraph of a page based on it's 
-     * document.title property
+     * document.title propertyy
      * 
      * @function InitialText
      * @returns {void}
